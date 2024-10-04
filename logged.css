@@ -1,11 +1,11 @@
 @font-face {
   font-family: 'MyFont';
-  src: url(./Raadhavalhi.ttf) format('truetype');
+  src: url(./fonts/Raadhavalhi.ttf) format('truetype');
 }
 
 @font-face {
   font-family: 'Faruma';
-  src: url(./Faruma.ttf) format('truetype');
+  src: url(./fonts/Faruma.ttf) format('truetype');
 }
 
 
@@ -73,75 +73,6 @@ header #logo {
   opacity: 1;
   transition: 0.3s all cubic-bezier(0.075, 0.82, 0.165, 1) 0.6s;
 }
-header {
-  display: flex;
-  height: 100px;
-  justify-content: center;
-  align-items: center;
-  padding: 0 20px;
-  position: fixed;
-  left: 0;
-  right: 0;
-  width: 500px;
-  margin: 0 auto;
-  top: 120px;
-  background-color: rgba(0, 0, 0, 0.05);
-  border-radius: 200px;
-  z-index: 9;
-  -webkit-backdrop-filter: blur(5px);
-          backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  transition: 1s all cubic-bezier(0.075, 0.82, 0.165, 1) 0.2s;
-}
-header a {
-  color: #000000;
-  text-decoration: none;
-  font-weight: 700;
-  display: block;
-  padding: 10px 20px;
-  line-height: 1;
-  font-size: 15px;
-  letter-spacing: 2px;
-  text-transform: lowercase;
-  transition: 0.3s all cubic-bezier(0.075, 0.82, 0.165, 1) 0.6s;
-}
-header button {
-  -webkit-appearance: none;
-  background: rgba(0, 0, 0, 0.3);
-  -webkit-backdrop-filter: blur(5px);
-          backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  position: absolute;
-  z-index: 99;
-  left: 0;
-  margin: auto;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  width: 60px;
-  height: 60px;
-  border-radius: 100%;
-  outline: 0;
-  border: 0;
-  cursor: pointer;
-  transition: 0.3s all cubic-bezier(0.075, 0.82, 0.165, 1) 0.2s;
-  transform: scale(0);
-}
-header button span {
-  width: 40%;
-  background: #fff;
-  height: 2px;
-  display: block;
-  margin: 5px auto;
-  transform: scalex(0);
-  transition: 0.6s transform cubic-bezier(0.075, 0.82, 0.165, 1) 0s, 0.3s margin ease-in 0s;
-}
-header button:hover {
-  border-color: rgba(255, 255, 255, 0.5);
-}
-header button:hover span {
-  margin: 10px auto;
-}
 
 header.sticky #logo {
   top: 0;
@@ -156,7 +87,7 @@ header.sticky  {
   height: 90px;
   transition-delay: 0.5s;
 }
-header.sticky button {
+header.sticky  button {
   transform: scale(1);
   transition-delay: 0.6s;
 }
@@ -164,7 +95,7 @@ header.sticky button span {
   transform: scalex(1);
   transition: 0.6s transform cubic-bezier(0.075, 0.82, 0.165, 1) 0.8s, 0.3s margin ease-in 0s;
 }
-header.sticky a {
+header.sticky  a {
   padding: 0;
   opacity: 0;
   letter-spacing: 0px;
@@ -242,7 +173,7 @@ header.sticky a {
 .text-content .learn-more {
     display: inline-block;
     padding: 15px 30px;
-    background-color: #A56EFF;
+    background-color: #000000;
     color: #FFFFFF;
     border-radius: 25px;
     text-decoration: none;
@@ -317,7 +248,6 @@ header.sticky a {
   object-fit: cover;
   object-position: center;
 }
-
 
 
 
