@@ -1,4 +1,12 @@
-/* styles.css */
+@font-face {
+    font-family: 'MyFont';
+    src: url(./Raadhavalhi.ttf) format('truetype');
+  }
+  
+  @font-face {
+    font-family: 'Faruma';
+    src: url(./Faruma.ttf) format('truetype');
+  }
 
 .logo {
     position: absolute;
@@ -7,18 +15,24 @@
 }
 
 .widget-header {
-    position: absolute;
-    top: 10px;
-    left: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.widget-header h2 {
-    float: left;
+.header-text {
+    text-align: center;
+    flex: 1;
 }
 
-.widget-header button {
-    float: left;
-    margin-left: 10px;
+.header-button {
+    margin-right: 20px;
+}
+
+.header-button button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
 }
 
 .footer {
@@ -29,4 +43,187 @@
 
 .footer p {
     margin-bottom: 10px;
+}
+
+
+/* Add styles for the popup container and popup */
+.popup-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup {
+    background-color: #000000;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    width: 400px;
+    max-width: 90%;
+}
+
+.popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.popup-header h2 {
+    font-size: 24px;
+    margin: 0;
+    text-align: center;
+    font-family: Faruma;
+    align-items: center;
+    color: white;
+}
+
+.close-popup {
+    font-size: 24px;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    padding: 10px;
+    color: white;
+}
+
+.close-popup:hover {
+    color: #0077b6;
+}
+
+.popup-content {
+    text-align: center;
+    font-family: Faruma;
+    color: white;
+}
+
+.popup-content p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.discord-link {
+    background-color: #0077b6;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.discord-link:hover {
+    background-color: #0073ed;
+}
+
+/* Add animation to the popup */
+.popup-container.show {
+    display: flex;
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+
+        /* Add some custom styles to make the widget look nicer */
+        body{
+            background-color: #000000;
+        }
+        .widget-container {
+            background-color: #000000;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        .widget-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .widget-header h2 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+        }
+        .widget-header button {
+            background-color: #0077b6;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .widget-header button:hover {
+            background-color: #0077b6;
+        }
+        .widget-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        .widget-content h3 {
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+        .widget-content p {
+            font-size: 16px;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+        .widget-content button {
+            background-color: #0077b6;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .widget-content button:hover {
+            background-color: #0077b6;
+        }
+        .widget-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .widget-footer p {
+            font-size: 14px;
+            color: #fff;
+        }
+        .widget-footer a {
+            font-size: 14px;
+            color: #0077b6;
+            text-decoration: none;
+        }
+        .widget-footer a:hover {
+            color: #3e8e41;
+        }
+
+        /* Apply this style to devices with a screen width below 768px */
+@media only screen and (max-width: 768px) {
+  body {
+    background-color: #000000;
+  }
+  h2 {
+    display: none;
+  }
 }
