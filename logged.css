@@ -73,7 +73,7 @@ header #logo {
   opacity: 1;
   transition: 0.3s all cubic-bezier(0.075, 0.82, 0.165, 1) 0.6s;
 }
-header nav {
+header {
   display: flex;
   height: 100px;
   justify-content: center;
@@ -93,7 +93,7 @@ header nav {
   border: 1px solid rgba(255, 255, 255, 0.06);
   transition: 1s all cubic-bezier(0.075, 0.82, 0.165, 1) 0.2s;
 }
-header nav a {
+header a {
   color: #000000;
   text-decoration: none;
   font-weight: 700;
@@ -105,7 +105,7 @@ header nav a {
   text-transform: lowercase;
   transition: 0.3s all cubic-bezier(0.075, 0.82, 0.165, 1) 0.6s;
 }
-header nav button {
+header button {
   -webkit-appearance: none;
   background: rgba(0, 0, 0, 0.3);
   -webkit-backdrop-filter: blur(5px);
@@ -127,7 +127,7 @@ header nav button {
   transition: 0.3s all cubic-bezier(0.075, 0.82, 0.165, 1) 0.2s;
   transform: scale(0);
 }
-header nav button span {
+header button span {
   width: 40%;
   background: #fff;
   height: 2px;
@@ -136,10 +136,10 @@ header nav button span {
   transform: scalex(0);
   transition: 0.6s transform cubic-bezier(0.075, 0.82, 0.165, 1) 0s, 0.3s margin ease-in 0s;
 }
-header nav button:hover {
+header button:hover {
   border-color: rgba(255, 255, 255, 0.5);
 }
-header nav button:hover span {
+header button:hover span {
   margin: 10px auto;
 }
 
@@ -149,22 +149,22 @@ header.sticky #logo {
   opacity: 0;
   transition-delay: 0.5s;
 }
-header.sticky nav {
+header.sticky  {
   top: 20px;
   padding: 0;
   width: 90px;
   height: 90px;
   transition-delay: 0.5s;
 }
-header.sticky nav button {
+header.sticky button {
   transform: scale(1);
   transition-delay: 0.6s;
 }
-header.sticky nav button span {
+header.sticky button span {
   transform: scalex(1);
   transition: 0.6s transform cubic-bezier(0.075, 0.82, 0.165, 1) 0.8s, 0.3s margin ease-in 0s;
 }
-header.sticky nav a {
+header.sticky a {
   padding: 0;
   opacity: 0;
   letter-spacing: 0px;
@@ -316,4 +316,45 @@ header.sticky nav a {
   height: 401.1px;
   object-fit: cover;
   object-position: center;
+}
+
+
+
+
+
+
+#nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: transparent;
+  padding: 10px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-family: 'Faruma';
+  padding-top: 60px;
+  font-size: 21px;
+  font-weight: bold;
+}
+
+#nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+#nav li {
+  margin-right: 20px;
+}
+
+#nav a {
+  color: #000000;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+#nav a:hover {
+  color: #0077b6;
 }
