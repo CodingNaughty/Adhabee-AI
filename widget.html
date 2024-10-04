@@ -5,106 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adhabee AI</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <style>
-        /* Add some custom styles to make the widget look nicer */
-        body{
-            background-color: #000000;
-        }
-        .widget-container {
-            background-color: #000000;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        }
-        .widget-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-        .widget-header h2 {
-            font-size: 24px;
-            font-weight: bold;
-            color: #fff;
-        }
-        .widget-header button {
-            background-color: #0077b6;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-        .widget-header button:hover {
-            background-color: #0077b6;
-        }
-        .widget-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
-        }
-        .widget-content h3 {
-            font-size: 18px;
-            font-weight: bold;
-            color: #fff;
-            margin-bottom: 10px;
-        }
-        .widget-content p {
-            font-size: 16px;
-            color: #fff;
-            margin-bottom: 20px;
-        }
-        .widget-content button {
-            background-color: #0077b6;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-        .widget-content button:hover {
-            background-color: #0077b6;
-        }
-        .widget-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 20px;
-        }
-        .widget-footer p {
-            font-size: 14px;
-            color: #fff;
-        }
-        .widget-footer a {
-            font-size: 14px;
-            color: #0077b6;
-            text-decoration: none;
-        }
-        .widget-footer a:hover {
-            color: #3e8e41;
-        }
-
-        /* Apply this style to devices with a screen width below 768px */
-@media only screen and (max-width: 768px) {
-  body {
-    background-color: #000000;
-  }
-  h2 {
-    display: none;
-  }
-} 
-    </style>
-</head>
+    <link rel="stylesheet" href="widget.css">
 <body>
     <div class="container mx-auto p-4 pt-6">
         <div class="widget-container">
             <div class="widget-header">
-                <img src="./blacklogo.png" alt="" srcset="" style="height: 60px; width: 60px;">
-                <h2>Adhabee AI</h2>
-                <a href="https://discord.gg/9BtQCpt6VD"><button style="border-radius: 15px; background-color: #0077b6;">Open In Discord</button></a>
+                <img src="./blacklogo.png" alt="" srcset="" style="height: 60px; width: 60px; text-align: center;">
+                <div class="header-text">
+                    <h2>Adhabee AI</h2>
+                </div>
+                <div class="header-button">
+                    <a href="https://discord.gg/9BtQCpt6VD"><button style="border-radius: 15px; background-color: #0077b6;">ޑިސްކޯޑް އިން ހުޅުވާ</button></a>
+                </div>
             </div>
-            <div style="align-items: center; text-align: center;" id="dcwidget">
+            <div style="align-items: center; text-align: center; z-index: 1;" id="dcwidget" >
                 <widgetbot
                 server="1266337383805354027"
                 channel="1290987332610035713"
@@ -119,7 +33,27 @@
             </div>
         </div>
     </div>
+    <div class="popup-container">
+        <div class="popup">
+            <div class="popup-header">
+                <h2>މަޢާފަށް އެދެން-</h2>
+                <button class="close-popup">×</button>
+            </div>
+            <div class="popup-content">
+                އަދަބީ އޭއައި ގެ ވެބް ވަރޝަން މެދުވެރިކޮށް ސީދާ ޚިދުމަތް ހޯދުމުގެ ފުރުޞަތު މިހާރަކު ނެތް!
+                އަދަބީ އޭއައިގެ ޚިދުމަތްތައް ހޯދުމަށްޓަކައި ޑިސްކޯޑް އެކައުންޓައް  <a href="https://discord.com/register" style="color: #0077b6;">ރެޖިސްޓާރ</a> ނުވަތަ  <a href="https://discord.gg/9BtQCpt6VD" style="color: #0077b6;">ލޮގިން</a> ކުރައްވާ
+                <br>
+                <br>
+                <br>
+                <a href="https://discord.gg/9BtQCpt6VD" class="discord-link">ޑިސްކޯޑް ހުޅުއްވާ</a>
+            </div>
+        </div>
+    </div>
     <script>
+        fetch('https://bugs.widgetbot.co/api/4/store/', {
+  mode: 'no-cors',
+  // other options...
+})
         // Add some animations to the widget
         const widgetContainer = document.querySelector('.widget-container');
         const widgetHeader = document.querySelector('.widget-header');
@@ -137,6 +71,27 @@
             widgetContent.style.transform = 'translateY(0)';
             widgetFooter.style.transform = 'translateY(0)';
         });
+
+
+        // Get the popup container and popup elements
+const popupContainer = document.querySelector('.popup-container');
+const popup = document.querySelector('.popup');
+const closePopupButton = document.querySelector('.close-popup');
+
+// Add event listener to the close popup button
+closePopupButton.addEventListener('click', () => {
+    popupContainer.classList.remove('show');
+    setTimeout(showPopup, 5000); // show the popup again after 5 seconds
+});
+
+// Function to show the popup
+function showPopup() {
+    popupContainer.classList.add('show');
+    setTimeout(showPopup, 5000); // show the popup again after 5 seconds
+}
+
+// Show the popup initially
+showPopup();
     </script>
 </body>
 </html>
