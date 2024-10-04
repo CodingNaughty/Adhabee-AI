@@ -1,3 +1,15 @@
+@font-face {
+  font-family: 'MyFont';
+  src: url(./fonts/Raadhavalhi.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Faruma';
+  src: url(./fonts/Faruma.ttf) format('truetype');
+}
+
+
+
 body {
   font-family: 'Roboto', sans-serif;
   background-color: transparent;
@@ -195,9 +207,7 @@ header.sticky nav a {
   text-decoration: none;
   cursor: pointer;
   }
-  .robot-image {
-  max-width: 100%;
-  height: auto}
+
 
 
 
@@ -208,7 +218,6 @@ header.sticky nav a {
   .container {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     width: auto;
     height: inherit;
     min-height: fit-content;
@@ -245,4 +254,66 @@ header.sticky nav a {
     height: auto;
     position: unset;
     
+}
+
+#discover {
+  background-image: url('./bg.jpg');
+  background-size: 100vw 100vh; /* Set width to 100vw and height to 100vh */
+  background-position: center;
+  height: 100vh;
+  width: 100vw; /* Set width to 100vw */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  
+}
+
+ 
+
+#background-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* Add this to ensure the video covers the entire screen on mobile devices */
+@media only screen and (max-width: 768px) {
+  #background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+  }
+}
+
+
+.robot-image {
+  background-image: url('./robot-image-large.png');
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100vh;
+}
+
+@media only screen and (max-width: 768px) {
+  .robot-image {
+  display: none;
+  }
+}
+
+
+#logo {
+  width: 714.6px;
+  height: 401.1px;
+  object-fit: cover;
+  object-position: center;
 }

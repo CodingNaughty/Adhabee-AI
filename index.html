@@ -12,36 +12,44 @@
 <body>
 <!-- partial:index.partial.html -->
 <header id="myHeader" class="">
-	<svg id="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 714.6 401.1">
-  <!--<path fill="#fff" fill-rule="evenodd" d="M502.8 0h211.8l-23 39.7-138.5 240L483 401H342.7L413 279.6 251.4 0h140.3L483 158.1 538.6 62 502.8 0Zm-201 279.6L140.1 0H0l231.7 401 70-121.4Z"/>--->
-</svg>
-	<nav style="margin-top: -40px; position: fixed;">
-		<a href="#discover">Discovery</a>
-		<a href="#ai">Adhabee AI</a>
-		<a href="#space">Space</a>
-		<a href="#future">Future</a>
+	<img id="logo" src="./logos.png" alt="Logo">
+	<nav style="margin-top: -40px; position: fixed; z-index: -1; font-family: Faruma; letter-spacing: -0.5px;">
+		<a href="#future">ކޮންޓެކްޓް</a>
+		<a href="#space">ސަޕޯރޓް</a>
+		<a href="#ai">އަދަބީ އޭއައި</a>
+		<a href="#discover">ދިރާސާ</a>
+
 		<button id="openmenu">
 			<span></span>
 			<span></span>
 		</button>
 	</nav>
 </header>
+
+<video id="background-video" autoplay loop muted playsinline>
+  <source src="bgvid.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+
 <div id="page" class="">
-	<section id="discover" style="background-color: rgb(254, 252, 252)">
+	<section id="discover" style="background:url()">
 		<div class="container">
-			<img alt="A futuristic robot with a white and black body, blue accents, and a camera-like eye" class="robot-image" src="./ai.png" style="width: 520px; height: 620px; z-index:1;"/>
+			<img alt="A futuristic robot with a white and black body, blue accents, and a camera-like eye" class="robot-image" id="robot-image" src="./robot-image-large.png" style="width: auto; height: 620px; z-index:1;"/>
 			<div class="text-content">
-			 <div class="subheading">
+			 <!--<div class="subheading">
 			  Embrace the Future
-			 </div>
-			 <h1>
-			  Empowering Dhivehi Language
+			 </div>-->
+			 <h1 style="font-family: 'MyFont';">
+				ދިވެހިބަސް ކުރިއެރުވުމުގައި
+
 			 </h1>
-			 <p>
-			  Adhabee AI is more than just a language learning tool; it is a gateway to the heart of Dhivehi culture. Through interactive lessons, engaging content
+			 <p style="font-family: Faruma; letter-spacing: -0.5px; margin-right: 70px;">
+				އަދަބީ އޭއައި އަކީ ހަމައެކަނި ބަސް ދަސްކުރުމުގެ ވަސީލަތެއް ނޫން. ދިވެހީންގެ ތާރީޙާއި ތަރިކައާއި ބަސްކޮށާރުގެ މާހިރެއް. އަދަބީ ގެ ދައުރު މިއަދުގެ ޖީލައް ވަރަށް މުހިންމު
+
 			 </p>
-			 <a class="button" href="./login.html" target="_blank">
-			  Discover Now
+			 <a class="button" href="./login.html" target="_blank" style="font-family: Faruma; letter-spacing: -0.5px;">
+			  އަދަބީ އޭއި ޕޯރޓަލް
 			 </a>
 			</div>
 		   </div>
