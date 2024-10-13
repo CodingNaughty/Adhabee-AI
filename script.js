@@ -135,3 +135,49 @@ function createSparkle(container) {
 }
 
 
+
+
+
+// Add this to the end of your existing JavaScript file
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Existing code...
+
+  // Footer interactivity
+  const footer = document.querySelector('.interactive-footer');
+  const footerBackground = footer.querySelector('.footer-background');
+
+  footer.addEventListener('mousemove', (e) => {
+    const rect = footer.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    footerBackground.style.backgroundPosition = `${x / 10}px ${y / 10}px`;
+  });
+
+  const socialIcons = document.querySelectorAll('.social-icon');
+  socialIcons.forEach(icon => {
+    icon.addEventListener('mouseenter', () => {
+      icon.style.transform = 'translateY(-5px) scale(1.1)';
+    });
+    icon.addEventListener('mouseleave', () => {
+      icon.style.transform = 'translateY(0) scale(1)';
+    });
+  });
+
+  const newsletterForm = document.querySelector('.newsletter-form');
+  newsletterForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const email = newsletterForm.querySelector('input[type="email"]').value;
+    alert(`Thank you for subscribing with: ${email}`);
+    newsletterForm.reset();
+  });
+
+  // Language switching for footer
+  const footerElements = footer.querySelectorAll('[data-en][data-dv]');
+  langToggle.addEventListener('click', () => {
+    footerElements.forEach(el => {
+      el.textContent = el.getAttribute(`data-${currentLang}`);
+    });
+  });
+});
