@@ -1,0 +1,103 @@
+<html dir="rtl" lang="dv">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Login Page
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <script src="./main.js" defer type="module"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
+  <style>
+    @font-face {
+  font-family: 'MyFont';
+  src: url(./fonts/Raadhavalhi.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Faruma';
+  src: url(./fonts/Faruma.ttf) format('truetype');
+}
+
+   body {
+            font-family: Faruma, 'Faruma';
+        }
+  </style>
+ </head>
+ <body class="bg-gray-800 text-white flex items-center justify-center min-h-screen" style="background-color: black;">
+  <div class="w-full max-w-md p-8 space-y-6">
+   <div class="text-center">
+    <img alt="Logo" class="mx-auto mb-4" height="50" src="./blacklogo.png" width="50"/>
+    <h1 class="text-2xl font-bold">
+      Adhabee AI Registration
+    </h1>
+   </div>
+   <div class="space-y-4">
+    <button class="w-full py-2 px-4 bg-white text-gray-800 rounded-md flex items-center justify-center space-x-2" id="google-login-btn">
+     <span style="font-family: Faruma;">
+      ގޫގަލް އައިޑީއިން ރެގިސްޓާރ ކުރޭ
+     </span>
+     <span></span>
+     <i class="fab fa-google">
+     </i>
+    </button>
+   </div>
+   <div class="text-center text-gray-400">
+    ނުވަތަ ރެގިސްޓާރ ކުރެއްވުމަށް
+   </div>
+   <form class="space-y-4">
+    <form id="sign-in-form" class="sign-in">
+     <input class="w-full py-2 px-4 bg-gray-700 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500" placeholder="އީމެއިލް" type="email" id="email"/>
+    </form>
+    <div>
+     <input class="w-full py-2 px-4 bg-gray-700 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500" placeholder="ޕާސްވޯޑް" type="password" id="password"/>
+    </div>
+    <div class="text-right text-teal-500">
+    </div>
+    <button class="w-full py-2 px-4 bg-teal-500 text-white rounded-md hover:bg-teal-600" type="submit" style="background-color: #023e8a;" >
+     ރެގިސްޓާރ
+    </button>
+   </form>
+   <div class="text-center text-gray-400">
+
+   </div>
+   <div class="text-center text-gray-400 space-y-2">
+    <div class="flex items-center justify-center space-x-2">
+     <span>
+      މައްސަލައެއް ދިމާވީތޯ⸮
+     </span>
+     <span></span>
+     <a class="text-teal-500" href="#" style="color: #0077b6;">
+    ސަޕޯރޓް 
+     </a>
+    </div>
+   </div>
+
+   <div class="text-center text-gray-400 space-y-2">
+    <div class="flex items-center justify-center space-x-2">
+    <a href="https://discord.gg/9BtQCpt6VD">
+        <i class="fab fa-discord">
+        </i>
+    </a>
+     <span></span>
+     <i class="fab fa-twitter">
+     </i>
+     <i class="fab fa-instagram">
+     </i>
+     <i class="fab fa-facebook">
+     </i>
+    </div>
+    <div>
+     <span>
+      2024
+     </span>
+     <i class="fas fa-heart text-red-500">
+    </i>
+        <h5>ފަރުމާކުރީ @ay_em.io</h5>
+    </div>
+   </div>
+  </div>
+ </body>
+</html>
