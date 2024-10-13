@@ -137,46 +137,34 @@ body {
     z-index: 0;
 }
 
-/* Features section styles */
+/* Features Section Styles */
 .features {
-    padding: 80px 0;
+    padding: 4rem 1rem;
 }
 
 .features h2 {
     text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 40px;
+    font-size: 2rem;
+    margin-bottom: 2rem;
 }
 
-.feature-grid {
+.features-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
+    gap: 2rem;
 }
 
 .feature-card {
-    background: rgb(39 42 73 / 30%);
-    padding: 30px;
-    border-radius: 10px;
+    background-color: #1F2937;
+    padding: 1.5rem;
+    border-radius: 8px;
     text-align: center;
-    transition: transform 0.3s ease;
-}
-
-.feature-card:hover {
-    transform: translateY(-10px);
 }
 
 .feature-icon {
-    font-size: 2.5rem;
-    color: var(--primary-color);
-    margin-bottom: 20px;
+    font-size: 3rem;
+    margin-bottom: 1rem;
 }
-
-.feature-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-}
-
 
 /* Demo Section Styles */
 .demo {
@@ -303,44 +291,184 @@ body {
 
 
 
-.discord-card {
-    background-color: #1F2937;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(60, 60, 60, 0.1);
-    padding: 20px;
-    width: 300px;
-    margin: 20px auto;
-  }
-  
-  .card-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+
+
+
+
+
+
+
+/* Features section styles */
+.features {
+    padding: 80px 0;
+}
+
+.features h2 {
     text-align: center;
-  }
-  
-  .card-content h3 {
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .card-content p {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.feature-card {
+    background: rgb(39 42 73 / 30%);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    color: var(--primary-color);
     margin-bottom: 20px;
-  }
-  
-  .card-content img {
+}
+
+.feature-card h3 {
+    font-size: 1.5rem;
     margin-bottom: 10px;
-  }
-  
-  .btn-primary {
-    background-color: #7289da;
-    color: #fff;
+}
+
+
+
+
+
+
+
+
+
+
+card-container {
+    perspective: 1000px;
+}
+
+.discord-card {
+    padding: 2rem;
+    width: 300px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    border-radius: 20px;
+}
+
+.discord-card:hover {
+    transform: rotateY(5deg) rotateX(5deg);
+}
+
+.card-header, .card-content, .card-footer {
+    position: relative;
+    z-index: 1;
+}
+
+.card-title {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.card-subtitle {
+    color: var(--text-color);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.card-content {
+    color: var(--text-color);
+}
+
+.card-content ul {
+    padding-left: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+.card-content li {
+    margin-bottom: 0.5rem;
+}
+
+.join-button {
+    background-color: #4F46E5;
+    color: var(--text-color);
     border: none;
-    padding: 10px 20px;
-    font-size: 16px;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
     cursor: pointer;
-  }
-  
-  .btn-primary:hover {
-    background-color: #6279a3;
-  }
+    transition: background-color 0.3s, transform 0.3s;
+    width: 100%;
+    border-radius: 100px;
+}
+
+.join-button:hover {
+    background-color: var(--button-hover-color);
+    transform: translateY(-2px);
+    border-radius: 20px;
+    background-color: #3e35e93d;
+    color: white;
+}
+
+.glow {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+        circle,
+        rgba(73, 87, 243, 0.3) 0%,
+        rgba(88, 101, 242, 0) 70%
+    );
+    opacity: 0;
+    transition: opacity 0.6s;
+    pointer-events: none;
+}
+
+.discord-card:hover .glow {
+    opacity: 1;
+}
+
+.sparkles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.sparkle {
+    position: absolute;
+    background-color: #ffffff;
+    border-radius: 50%;
+    animation: sparkle 1.5s infinite;
+}
+
+@keyframes sparkle {
+    0%, 100% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
