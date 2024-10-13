@@ -359,6 +359,7 @@ card-container {
     transition: transform 0.6s;
     transform-style: preserve-3d;
     border-radius: 20px;
+    align-item: center;
 }
 
 .discord-card:hover {
