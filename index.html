@@ -1,158 +1,89 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="dv">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adhabee AI - Dhivehi AI Homepage</title>
+    <title>އަދަބީ AI - ދިވެހި ބަހުގެ ފުރަތަމަ އާޓިފިޝަލް އިންޓެލިޖެންސް</title>
     <link rel="stylesheet" href="styles.css">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
-<body>
-    <div id="root">
-        <!-- React app will be mounted here -->
-
-    </div>
-
-    <nav class="navbar">
-        <div class="navbar-container">
-            <div class="navbar-logo">
-                <img src="/watermark-logo.png" alt="Adhabee Logo" width="40" height="40">
-                <a href="#" class="navbar-brand">Adhabee AI</a>
+<body class="dark-theme">
+    <canvas id="bg-canvas"></canvas>
+    <header>
+        <nav>
+            <div class="logo">އަދަބީ AI</div>
+            <ul>
+                <li><a href="/" class="nav-link" data-dv="މައި ޞަފްޙާ" data-en="Home">މައި ޞަފްޙާ</a></li>
+                <li><a href="about.html" class="nav-link" data-dv="ތަޢާރަފު" data-en="About">ތަޢާރަފު</a></li>
+                <li><a href="features.html" class="nav-link" data-dv="ޚާއްޞަ ކަންތައްތައް" data-en="Features">ޚާއްޞަ ކަންތައްތައް</a></li>
+                <li><a href="chat.html" class="nav-link" data-dv="ޗެޓް" data-en="Chat">ޗެޓް</a></li>
+                <li><a href="ar-demo.html" class="nav-link" data-dv="އޭއާރް ޑެމޯ" data-en="AR Demo">އޭއާރް ޑެމޯ</a></li>
+            </ul>
+            <div class="controls">
+                <button id="theme-toggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button id="lang-toggle" aria-label="Toggle language">ދިވެހި</button>
             </div>
-            <div class="navbar-menu">
-                <a href="#home" class="navbar-item">Home</a>
-                <a href="#features" class="navbar-item">Features</a>
-                <a href="https://discord.gg/9BtQCpt6VD" class="navbar-item">Adhabee</a>
-                <a href="#contact" class="navbar-item">Socials</a>
+        </nav>
+    </header>
+    <main>
+        <section id="home" class="hero">
+            <h1 id="main-title">އަދަބީ AI</h1>
+            <p id="subtitle">ދިވެހި ބަހުގެ ފުރަތަމަ އާޓިފިޝަލް އިންޓެލިޖެންސް</p>
+            <a href="#chat" class="cta-button" data-dv="ޗެޓް ފަށާ" data-en="Start Chatting">ޗެޓް ފަށާ</a>
+        </section>
+
+        <section id="about" class="about">
+            <h2 class="section-title" data-dv="އަދަބީ އަކީ ކޮބާ؟" data-en="What is Adhabee?">އަދަބީ އަކީ ކޮބާ؟</h2>
+            <p class="section-content" data-dv="އަދަބީ އަކީ ދިވެހި ބަހުން މުޢާމަލާތު ކުރެވޭ ފުރަތަމަ އާޓިފިޝަލް އިންޓެލިޖެންސް އެވެ. މިއީ ޑިސްކޯޑް މެދުވެރިކޮށް ބޭނުން ކުރެވޭ ބޮޓެކެވެ." data-en="Adhabee is the first Artificial Intelligence that communicates in the Dhivehi language. It is a bot that can be used through Discord.">އަދަބީ އަކީ ދިވެހި ބަހުން މުޢާމަލާތު ކުރެވޭ ފުރަތަމަ އާޓިފިޝަލް އިންޓެލިޖެންސް އެވެ. މިއީ ޑިސްކޯޑް މެދުވެރިކޮށް ބޭނުން ކުރެވޭ ބޮޓެކެވެ.</p>
+        </section>
+
+        <section id="features" class="features">
+            <h2 class="section-title" data-dv="ޚާއްޞަ ކަންތައްތައް" data-en="Features">ޚާއްޞަ ކަންތައްތައް</h2>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <i class="fas fa-language"></i>
+                    <h3 data-dv="ދިވެހި ބަހުގެ ޤާބިލުކަން" data-en="Dhivehi Language Proficiency">ދިވެހި ބަހުގެ ޤާބިލުކަން</h3>
+                    <p data-dv="ދިވެހި ބަހުން ފުރިހަމައަށް މުޢާމަލާތު ކުރުމުގެ ޤާބިލުކަން" data-en="Ability to communicate fluently in Dhivehi">ދިވެހި ބަހުން ފުރިހަމައަށް މުޢާމަލާތު ކުރުމުގެ ޤާބިލުކަން</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-robot"></i>
+                    <h3 data-dv="އާޓިފިޝަލް އިންޓެލިޖެންސް" data-en="Artificial Intelligence">އާޓިފިޝަލް އިންޓެލިޖެންސް</h3>
+                    <p data-dv="އެންމެ ފަހުގެ އޭ.އައި ޓެކްނޮލޮޖީ ބޭނުންކޮށްގެން ތައްޔާރުކުރެވިފައި" data-en="Built using the latest AI technology">އެންމެ ފަހުގެ އޭ.އައި ޓެކްނޮލޮޖީ ބޭނުންކޮށްގެން ތައްޔާރުކުރެވިފައި</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fab fa-discord"></i>
+                    <h3 data-dv="ޑިސްކޯޑް އިންޓަގްރޭޝަން" data-en="Discord Integration">ޑިސްކޯޑް އިންޓަގްރޭޝަން</h3>
+                    <p data-dv="ޑިސްކޯޑް މެދުވެރިކޮށް ފަސޭހައިން ބޭނުންކުރެވޭ" data-en="Easily accessible through Discord">ޑިސްކޯޑް މެދުވެރިކޮށް ފަސޭހައިން ބޭނުންކުރެވޭ</p>
+                </div>
             </div>
-            <button class="navbar-toggle">
-                <span class="navbar-toggle-icon"></span>
-            </button>
+        </section>
+
+        <section id="chat" class="chat">
+            <h2 class="section-title" data-dv="އަދަބީއާ ވާހަކަދައްކާ" data-en="Chat with Adhabee">އަދަބީއާ ވާހަކަދައްކާ</h2>
+            <div class="chat-card">
+                <div id="chat-messages"></div>
+                <form id="chat-form">
+                    <input type="text" id="user-input" placeholder="މެސެޖެއް ލިޔެލާ...">
+                    <button type="submit" data-dv="ފޮނުވާ" data-en="Send">ފޮނުވާ</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2023 އަދަބީ AI. <span data-dv="ހުރިހާ ޙައްޤެއް ރައްކާތެރިކުރެވިފައި" data-en="All rights reserved">ހުރިހާ ޙައްޤެއް ރައްކާތެރިކުރެވިފައި</span></p>
+            <div class="social-links">
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
         </div>
-    </nav>
-
-    <section id="home" class="hero">
-        <div class="particle-background"></div>
-        <div class="hero-content">
-            <img src="/watermark-logo.png" alt="ފަން Logo" width="120" height="120">
-            <h1>Welcome to Adhabee AI</h1>
-            <p>Revolutionizing Dhivehi language processing with cutting-edge AI technology. 
-               Experience seamless communication and understanding like never before.</p>
-            <div class="hero-cta">
-                <a href="login.html">
-					<button class="btn btn-primary" target="_blank">Get Started</button>
-				</a>
-                <!--<div class="animated-robot"></div>-->
-            </div>
-        </div>
-        <div id="brain-canvas"></div>
-    </section>
-
-    <section id="features" class="features">
-        <h2>Beta Features</h2>
-        <div class="feature-grid">
-            <div class="feature-card">
-                <i class="feature-icon fas fa-brain"></i>
-                <h3>Advanced NLP</h3>
-                <p>State-of-the-art natural language processing for Dhivehi</p>
-            </div>
-            <div class="feature-card">
-                <i class="feature-icon fas fa-bolt"></i>
-                <h3>Fast Processing</h3>
-                <p>Lightning-fast language analysis and generation</p>
-            </div>
-            <div class="feature-card">
-                <i class="feature-icon fas fa-globe"></i>
-                <h3>Multilingual Support</h3>
-                <p>Seamless integration with other languages</p>
-            </div>
-            <div class="feature-card">
-                <i class="feature-icon fas fa-comments"></i>
-                <h3>Conversational AI</h3>
-                <p>Engage in natural Dhivehi conversations</p>
-            </div>
-        </div>
-		<br>
-		<br>
-		<div class="card-footer">
-			<button class="join-button" >Try Out Our Beta Features For Free Now! 🚀</button>
-		</div>
-    </section>
-
-
-    <section id="demo" class="demo">
-        <h2>Try It Out</h2>
-        <form id="demo-form">
-				<div class="card-container">
-					<div class="discord-card">
-						<div class="card-header">
-							<h2 class="card-title">Join Adhabee on Discord</h2>
-							<p class="card-subtitle">Be the first to try Adhabee AI and get exclusive perks!</p>
-						</div>
-						<div class="card-content">
-							<p>Join our Discord community to</p>
-							<ul>
-								<li>Get early access to Adhabee AI</li>
-								<li>Enjoy unlimited usage during the beta phase</li>
-								<li>Provide feedback and shape the future of Dhivehi AI</li>
-								<li>Connect with other AI enthusiasts</li>
-							</ul>
-						</div>
-						<div class="card-footer">
-							<button class="join-button">Join Adhabee Discord </button>
-						</div>
-						<div class="glow"></div>
-						<div class="sparkles"></div>
-					</div>
-				</div>
-        </form>
-    </section>
-
-    <section id="contact" class="cta">
-        <h2>Ready to revolutionize Dhivehi language processing?</h2>
-        <p>Join us in shaping the future of AI for Dhivehi</p>
-        <a href="https://discord.gg/9BtQCpt6VD">
-			<button class="btn btn-primary">Get Started Now</button>
-		</a>
-    </section>
+    </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="script.js"></script>
 </body>
-	<footer class="interactive-footer">
-  <div class="footer-content">
-    <div class="footer-section">
-      <h3 data-en="Explore" data-dv="އެކްސްޕްލޯރ ކުރުން">Explore</h3>
-      <ul>
-        <li><a href="#" data-en="About Us" data-dv="އަޅުގަނޑުމެންނާ ބެހޭ">About Us</a></li>
-        <li><a href="#" data-en="Services" data-dv="ޚިދުމަތްތައް">Services</a></li>
-        <li><a href="#" data-en="Blog" data-dv="ބްލޮގް">Blog</a></li>
-        <li><a href="#" data-en="Contact" data-dv="ގުޅުއްވުމަށް">Contact</a></li>
-      </ul>
-    </div>
-    <div class="footer-section">
-      <h3 data-en="Connect" data-dv="ގުޅުން">Our Socials</h3>
-      <div class="social-icons">
-        <a href="https://discord.gg/9BtQCpt6VD" class="social-icon" aria-label="Discood">
-          <i class="fab fa-discord"></i>
-        </a>
-        <a href="https://www.instagram.com/adhabee/" class="social-icon" aria-label="Instagram">
-          <i class="fab fa-instagram"></i>
-        </a>
-      </div>
-    </div>
-    <div class="footer-section">
-      <h3 data-en="Newsletter" data-dv="ނިއުސްލެޓަރ">Newsletter (Coming Soon)</h3>
-      <form class="newsletter-form">
-        <input type="email" placeholder="Enter your email" aria-label="Email for newsletter" required>
-        <button type="submit" data-en="Subscribe" data-dv="ސަބްސްކްރައިބް">Subscribe</button>
-      </form>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>&copy; 2024 Adhabee AI. <span data-en="All rights reserved." data-dv="ހުރިހާ ޙައްޤެއް ރައްކާތެރިކުރެވިފައި.">All rights reserved.</span></p>
-  </div>
-  <div class="footer-background"></div>
-</footer>
 </html>
