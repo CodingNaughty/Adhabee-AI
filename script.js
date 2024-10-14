@@ -1,183 +1,170 @@
-// Navbar toggle
-const navbarToggle = document.querySelector('.navbar-toggle');
-const navbarMenu = document.querySelector('.navbar-menu');
+// 3D Background
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('bg-canvas'), alpha: true });
+renderer.setSize(window.innerWidth, window.innerHeight);
 
-navbarToggle.addEventListener('click', () => {
-    navbarMenu.classList.toggle('active');
-});
+const geometry = new THREE.TorusGeometry(10, 3, 16, 100);
+const material = new THREE.MeshBasicMaterial({ color: 0x0a1929, wireframe: true });
+const torus = new THREE.Mesh(geometry, material);
+scene.add(torus);
 
-// Particle background
-function createParticles() {
-    const particleContainer = document.querySelector('.particle-background');
-    const particleCount = 50;
+camera.position.z = 30;
 
-    for (let i = 0; i < particleCount; i++) {
-        const particle = document.createElement('div');
-        particle.classList.add('particle');
-        particle.style.left = `${Math.random() * 100}%`;
-        particle.style.top = `${Math.random() * 100}%`;
-        particle.style.animationDuration = `${Math.random() * 10 + 5}s`;
-        particleContainer.appendChild(particle);
-    }
+function animate() {
+    requestAnimationFrame(animate);
+    torus.rotation.x += 0.01;
+    torus.rotation.y += 0.005;
+    renderer.render(scene, camera);
 }
 
-createParticles();
+animate();
 
-// Three.js brain visualization
-function initBrainVisualization() {
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer();
-
+window.addEventListener('resize', () => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
-    document.getElementById('brain-canvas').appendChild(renderer.domElement);
-
-    const geometry = new THREE.SphereGeometry(1, 32, 32);
-    const material = new THREE.MeshBasicMaterial({ color: 0x4F46E5, wireframe: true });
-    const brain = new THREE.Mesh(geometry, material);
-
-    scene.add(brain);
-    camera.position.z = 5;
-
-    function animate() {
-        requestAnimationFrame(animate);
-        brain.rotation.x += 0.01;
-        brain.rotation.y += 0.01;
-        renderer.render(scene, camera);
-    }
-
-    animate();
-
-    window.addEventListener('resize', () => {
-        camera.aspect = window.innerWidth / window.innerHeight;
-        camera.updateProjectionMatrix();
-        renderer.setSize(window.innerWidth, window.innerHeight);
-    });
-}
-
-initBrainVisualization();
-
-// Demo form submission
-const demoForm = document.getElementById('demo-form');
-const demoText = document.getElementById('demo-text');
-const demoResult = document.getElementById('demo-result');
-
-demoForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const text = demoText.value;
-    
-    // Simulate AI processing
-    setTimeout(() => {
-        const translatedText = text.split('').reverse().join('');
-        demoResult.textContent = `Dhivehi translation: ${translatedText}`;
-        demoResult.style.opacity = 1;
-    }, 1000);
 });
 
+// Theme switching
+const themeToggle = document.getElementById('theme-toggle');
+const body = document.body;
 
+themeToggle.addEventListener('click', () => {
+    body.classList.toggle('light-theme');
+    const icon = themeToggle.querySelector('i');
+    icon.classList.toggle('fa-moon');
+    icon.classList.toggle('fa-sun');
+});
 
+// Language switching
+const langToggle = document.getElementById('lang-toggle');
+let currentLang = 'dv';
 
+langToggle.addEventListener('click', () => {
+    currentLang = currentLang === 'dv' ? 'en' : 'dv';
+    updateLanguage();
+});
 
-
-
-document.addEventListener('DOMContentLoaded', () => {
-    const card = document.querySelector('.discord-card');
-    const sparklesContainer = document.querySelector('.sparkles');
-
-    // Create sparkles
-    for (let i = 0; i < 20; i++) {
-        createSparkle(sparklesContainer);
-    }
-
-    // Tilt effect
-    card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-
-        const rotateX = (y - centerY) / 10;
-        const rotateY = (centerX - x) / 10;
-
-        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+function updateLanguage() {
+    document.querySelectorAll('[data-dv]').forEach(el => {
+        el.textContent = el.getAttribute(`data-${currentLang}`);
     });
+    langToggle.textContent = currentLang === 'dv' ? 'English' : 'ދިވެހި';
+}
 
-    card.addEventListener('mouseleave', () => {
-        card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
-    });
-
-    // Button click effect
-    const joinButton = document.querySelector('.join-button');
-    joinButton.addEventListener('click', () => {
-        joinButton.style.transform = 'scale(0.95)';
-        setTimeout(() => {
-            joinButton.style.transform = 'scale(1)';
-        }, 100);
+// Smooth scrolling for navigation links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
     });
 });
 
-function createSparkle(container) {
-    const sparkle = document.createElement('div');
-    sparkle.classList.add('sparkle');
-    
-    const size = Math.random() * 5 + 2;
-    sparkle.style.width = `${size}px`;
-    sparkle.style.height = `${size}px`;
-    
-    sparkle.style.left = `${Math.random() * 100}%`;
-    sparkle.style.top = `${Math.random() * 100}%`;
-    
-    sparkle.style.animationDelay = `${Math.random() * 1.5}s`;
-    
-    container.appendChild(sparkle);
+// Chat functionality
+const chatMessages = document.getElementById('chat-messages');
+const chatForm = document.getElementById('chat-form');
+const userInput = document.getElementById('user-input');
+
+function addMessage(content, isUser = false) {
+    const messageDiv = document.createElement('div');
+    messageDiv.classList.add('message');
+    messageDiv.classList.add(isUser ? 'user-message' : 'ai-message');
+    messageDiv.textContent = content;
+    chatMessages.appendChild(messageDiv);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
 }
 
+// Initial AI message
+addMessage('ހާދަ ރީތި ދުވަހެއް! އަހަރެންނަކީ އަދަބީ. ކިހިނެއްތޯ އަހަރެންނަށް އެހީތެރިވެވޭނީ؟');
 
-
-
-
-// Add this to the end of your existing JavaScript file
-
-document.addEventListener('DOMContentLoaded', () => {
-  // Existing code...
-
-  // Footer interactivity
-  const footer = document.querySelector('.interactive-footer');
-  const footerBackground = footer.querySelector('.footer-background');
-
-  footer.addEventListener('mousemove', (e) => {
-    const rect = footer.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-
-    footerBackground.style.backgroundPosition = `${x / 10}px ${y / 10}px`;
-  });
-
-  const socialIcons = document.querySelectorAll('.social-icon');
-  socialIcons.forEach(icon => {
-    icon.addEventListener('mouseenter', () => {
-      icon.style.transform = 'translateY(-5px) scale(1.1)';
-    });
-    icon.addEventListener('mouseleave', () => {
-      icon.style.transform = 'translateY(0) scale(1)';
-    });
-  });
-
-  const newsletterForm = document.querySelector('.newsletter-form');
-  newsletterForm.addEventListener('submit', (e) => {
+chatForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const email = newsletterForm.querySelector('input[type="email"]').value;
-    alert(`Thank you for subscribing with: ${email}`);
-    newsletterForm.reset();
-  });
+    const userMessage = userInput.value.trim();
+    if (userMessage) {
+        addMessage(userMessage, true);
+        userInput.value = '';
 
-  // Language switching for footer
-  const footerElements = footer.querySelectorAll('[data-en][data-dv]');
-  langToggle.addEventListener('click', () => {
-    footerElements.forEach(el => {
-      el.textContent = el.getAttribute(`data-${currentLang}`);
+        try {
+            const response = await fetch('/api/chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ message: userMessage, lang: currentLang }),
+            });
+            const data = await response.json();
+            addMessage(data.response);
+        } catch (error) {
+            console.error('Error:', error);
+            addMessage('މަޢާފުކުރައްވާ، މިވަގުތު އަހަރެންނަށް ޖަވާބެއް ނުދެވޭނެ. އަހަރެންގެ ޤާބިލިއްޔަތު އިތުރަށް ތަރައްޤީ ކުރެވެމުންދަނީ.');
+        }
+    }
+});
+
+// Initialize language
+updateLanguage();
+
+
+
+
+
+
+
+
+// ... (keep the existing code for background, theme switching, and language switching)
+
+// Chat functionality
+function initChat() {
+    const chatMessages = document.getElementById('chat-messages');
+    const chatForm = document.getElementById('chat-form');
+    const userInput = document.getElementById('user-input');
+
+    if (!chatForm) return;
+
+    function addMessage(content, isUser = false) {
+        const messageDiv = document.createElement('div');
+        messageDiv.classList.add('message');
+        messageDiv.classList.add(isUser ? 'user-message' : 'ai-message');
+        messageDiv.textContent = content;
+        chatMessages.appendChild(messageDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    // Initial AI message
+    addMessage('ހާދަ ރީތި ދުވަހެއް! އަހަރެންނަކީ އަދަބީ. ކިހިނެއްތޯ އަހަރެންނަށް އެހީތެރިވެވޭނީ؟');
+
+    chatForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const userMessage = userInput.value.trim();
+        if (userMessage) {
+            addMessage(userMessage, true);
+            userInput.value = '';
+
+            try {
+                const response = await fetch('/api/chat', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ message: userMessage, lang: document.documentElement.lang }),
+                });
+                const data = await response.json();
+                addMessage(data.response);
+            } catch (error) {
+                console.error('Error:', error);
+                addMessage('މަޢާފުކުރައްވާ، މިވަގުތު އަހަރެންނަށް ޖަވާބެއް ނުދެވޭނެ. އަހަރެންގެ ޤާބިލިއްޔަތު އިތުރަށް ތަރައްޤީ ކުރެވެމުންދަނީ.');
+            }
+        }
     });
-  });
+}
+
+// Initialize everything
+document.addEventListener('DOMContentLoaded', () => {
+    initBackground();
+    initThemeSwitch();
+    initLanguageSwitch();
+    initChat();
 });

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="dv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>އަދަބީ AI - ޚާއްޞަ ކަންތައްތައް</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body class="dark-theme">
+    <canvas id="bg-canvas"></canvas>
+    <header>
+        <nav>
+            <div class="logo">އަދަބީ AI</div>
+            <ul>
+                <li><a href="/" class="nav-link" data-dv="މައި ޞަފްޙާ" data-en="Home">މައި ޞަފްޙާ</a></li>
+                <li><a href="about.html" class="nav-link" data-dv="ތަޢާރަފު" data-en="About">ތަޢާރަފު</a></li>
+                <li><a href="features.html" class="nav-link" data-dv="ޚާއްޞަ ކަންތައްތައް" data-en="Features">ޚާއްޞަ ކަންތައްތައް</a></li>
+                <li><a href="chat.html" class="nav-link" data-dv="ޗެޓް" data-en="Chat">ޗެޓް</a></li>
+                <li><a href="ar-demo.html" class="nav-link" data-dv="އޭއާރް ޑެމޯ" data-en="AR Demo">އޭއާރް ޑެމޯ</a></li>
+            </ul>
+            <div class="controls">
+                <button id="theme-toggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button id="lang-toggle" aria-label="Toggle language">ދިވެހި</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="features" class="features">
+            <h2 class="section-title" data-dv="ޚާއްޞަ ކަންތައްތައް" data-en="Features">ޚާއްޞަ ކަންތައްތައް</h2>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <i class="fas fa-language"></i>
+                    <h3 data-dv="ދިވެހި ބަހުގެ ޤާބިލުކަން" data-en="Dhivehi Language Proficiency">ދިވެހި ބަހުގެ ޤާބިލުކަން</h3>
+                    <p data-dv="ދިވެހި ބަހުން ފުރިހަމައަށް މުޢާމަލާތު ކުރުމުގެ ޤާބިލުކަން" data-en="Ability to communicate fluently in Dhivehi">ދިވެހި ބަހުން ފުރިހަމައަށް މުޢާމަލާތު ކުރުމުގެ ޤާބިލުކަން</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-robot"></i>
+                    <h3 data-dv="އާޓިފިޝަލް އިންޓެލިޖެންސް" data-en="Artificial Intelligence">އާޓިފިޝަލް އިންޓެލިޖެންސް</h3>
+                    <p data-dv="އެންމެ ފަހުގެ އޭ.އައި ޓެކްނޮލޮޖީ ބޭނުންކޮށްގެން ތައްޔާރުކުރެވިފައި" data-en="Built using the latest AI technology">އެންމެ ފަހުގެ އޭ.އައި ޓެކްނޮލޮޖީ ބޭނުންކޮށްގެން ތައްޔާރުކުރެވިފައި</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fab fa-discord"></i>
+                    <h3 data-dv="ޑިސްކޯޑް އިންޓަގްރޭޝަން" data-en="Discord Integration">ޑިސްކޯޑް އިންޓަގްރޭޝަން</h3>
+                    <p data-dv="ޑިސްކޯޑް މެދުވެރިކޮށް ފަސޭހައިން ބޭނުންކުރެވޭ" data-en="Easily accessible through Discord">ޑިސްކޯޑް މެދުވެރިކޮށް ފަސޭހައިން ބޭނުންކުރެވޭ</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2023 އަދަބީ AI. <span data-dv="ހުރިހާ ޙައްޤެއް ރައްކާތެރިކުރެވިފައި" data-en="All rights reserved">ހުރިހާ ޙައްޤެއް ރައްކާތެރިކުރެވިފައި</span></p>
+            <div class="social-links">
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
